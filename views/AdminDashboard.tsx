@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import DashboardCard from '../components/DashboardCard';
 import UserManagementTable from '../components/UserManagementTable';
@@ -89,10 +88,25 @@ const AdminDashboard: React.FC = () => {
 
     return (
         <div className="space-y-8">
-            <h2 className="text-3xl font-bold text-white">Admin Governance Dashboard</h2>
+            <div className="flex flex-wrap justify-between items-center gap-4">
+                <h2 className="text-3xl font-bold text-white">Admin Governance Dashboard</h2>
+                <div className="flex items-center gap-x-4">
+                    <div className="flex items-center gap-x-2 bg-spyn-slate-800 px-3 py-2 rounded-lg border border-spyn-slate-700">
+                        <span className="relative flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <span className="text-sm font-medium text-green-300">All Systems Operational</span>
+                    </div>
+                    <button disabled className="bg-spyn-gold-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.834 9.168-4.432" /></svg>
+                        Broadcast Alert
+                    </button>
+                </div>
+            </div>
             
             {/* Key Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                  <DashboardCard 
                     title="Total EFS Contracts Executed" 
                     value={executedContracts}
@@ -116,6 +130,12 @@ const AdminDashboard: React.FC = () => {
                     value={activeUsers} 
                     icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
                     colorClass="bg-purple-600"
+                />
+                 <DashboardCard 
+                    title="Revenue (30d)" 
+                    value="$4,750" 
+                    icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 0c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0-3a7 7 0 100 14 7 7 0 000-14z" /><path d="M4 4h16v16H4z" /></svg>}
+                    colorClass="bg-green-600"
                 />
             </div>
 

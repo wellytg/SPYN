@@ -45,6 +45,8 @@ export interface ProfessionalProfile {
   avatar: string;
   completed_projects: number;
   profileCompletion: number;
+  status: 'Actively Looking' | 'Open to Offers' | 'Not Looking';
+  desired_equity: string;
 }
 
 export interface Project {

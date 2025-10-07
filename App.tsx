@@ -29,7 +29,7 @@ const App: React.FC = () => {
         return <AdminDashboard />;
       case View.Home:
       default:
-        return <HomeView />;
+        return <HomeView setActiveView={setActiveView} />;
     }
   };
 

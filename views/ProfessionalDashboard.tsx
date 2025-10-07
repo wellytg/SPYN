@@ -20,9 +20,17 @@ const generateMatchScore = (founderId: string) => {
 
 
 const ProfileOverview: React.FC = () => (
-    <div className="bg-spyn-slate-800 p-6 rounded-lg shadow-lg border border-spyn-slate-700 h-full">
-        <div className="flex justify-between items-center mb-4">
-            <h3 className="text-xl font-semibold text-white">Profile Overview</h3>
+    <div className="bg-spyn-slate-800 p-6 rounded-lg shadow-lg border border-spyn-slate-700 h-full flex flex-col">
+        <div className="flex justify-between items-start mb-4">
+            <div>
+                <h3 className="text-xl font-semibold text-white">Profile Overview</h3>
+                 {CURRENT_PROFESSIONAL.verified && (
+                    <div className="mt-2 flex items-center gap-x-2 px-3 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-300 w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                        SPYN Certified Professional
+                    </div>
+                 )}
+            </div>
             <button className="bg-spyn-slate-700 hover:bg-spyn-slate-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-colors">
                 Edit Profile
             </button>
@@ -45,6 +53,12 @@ const ProfileOverview: React.FC = () => (
                     ))}
                 </div>
             </div>
+        </div>
+        <div className="mt-auto pt-4 border-t border-spyn-slate-700/50">
+            <button className="w-full text-center bg-spyn-slate-700 hover:bg-spyn-slate-600 text-white text-sm font-semibold py-2 px-3 rounded-md transition-colors flex items-center justify-center gap-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                View My Public Profile
+            </button>
         </div>
     </div>
 );
@@ -199,7 +213,7 @@ const ProfessionalDashboard: React.FC = () => {
                 <p className="text-spyn-slate-300">Welcome back, {CURRENT_PROFESSIONAL.name}</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                  <DashboardCard 
                     title="Total Vested Equity Value" 
                     value="$125,400" 
@@ -217,6 +231,12 @@ const ProfessionalDashboard: React.FC = () => {
                     value="92%" 
                     icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>}
                     colorClass="bg-purple-600"
+                />
+                <DashboardCard 
+                    title="Profile Views (7d)" 
+                    value="142" 
+                    icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>}
+                    colorClass="bg-red-600"
                 />
             </div>
 
