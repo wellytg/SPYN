@@ -1,0 +1,5 @@
+{
+  "name": "SPYN: Smart People You Need (Prototype)",
+  "description": "A functional MVP for SPYN (Smart People You Need) showcasing the core Equity-for-Services (EFS) workflow, including matching, legal transactions, and governance, with integrated Gemini AI features.",
+  "requestFramePermissions": []
+}
