@@ -1,5 +1,3 @@
-import { View as PreviousView } from './types';
-
 export enum View {
   Home = 'HOME',
   Opportunities = 'OPPORTUNITIES',
