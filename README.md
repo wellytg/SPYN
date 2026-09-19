@@ -64,4 +64,4 @@ The latest version of the SPYN prototype is available online:
 - **Format Code:** `npm run format`
 
 ---
-*Created by Wellington Tatenda Gwavava*
+*Created by Wellington Gwavava*
